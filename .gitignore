@@ -1,0 +1,39 @@
+# Node
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Build
+dist/
+build/
+
+# Misc
+.env
+.env.local
+coverage/
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Temp
+tmp/
+
+# Visual Studio Code history
+.history/
