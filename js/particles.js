@@ -171,9 +171,12 @@ class VideoController {
                             const playPromise = video.play();
                             if (playPromise !== undefined) {
                                 playPromise.then(() => {
-                                    controlButton.querySelector('.pause-icon').style.display = 'block';
-                                    controlButton.querySelector('.play-icon').style.display = 'none';
-                                }).catch(() => {
+                                    // Video started playing successfully
+                                }).catch((error) => {
+                                    // Ignore AbortError which happens when browsers pause background videos
+                                    if (error.name === 'AbortError') {
+                                        return;
+                                    }
                                     // If play fails, try again after a short delay
                                     setTimeout(startPlay, 50);
                                 });

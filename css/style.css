@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Botanika-Demi';
-    src: url('../fonts/Botanika-Demi.otf') format('opentype');
+    src: url('../assets/fonts/Botanika-Demi.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Botanika Mono';
-    src: url('../fonts/Botanika-Mono.otf') format('opentype');
+    src: url('../assets/fonts/Botanika Mono Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
