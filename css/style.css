@@ -262,6 +262,12 @@ body {
     color: var(--primary);
 }
 
+.stats__prefix {
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
 .stats__text {
     font-size: 20px;
     line-height: 24px;
@@ -318,6 +324,15 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: var(--radius);
+}
+
+/* White background for Discord feature image */
+.features__item:last-child .features__image {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 /* Team */

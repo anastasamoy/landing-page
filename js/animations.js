@@ -30,14 +30,23 @@ function animateCounter(element, target) {
     let current = 0;
     const duration = 2000; // 2 seconds
     const step = (target * 16) / duration; // 16ms is roughly one frame
+    const prefix = element.getAttribute('data-prefix') || '';
     
     function updateCounter() {
         current += step;
         if (current < target) {
-            element.textContent = Math.round(current) + '%';
+            if (prefix) {
+                element.innerHTML = `<span class="stats__prefix">${prefix.trim()}</span> ${Math.round(current)}%`;
+            } else {
+                element.textContent = Math.round(current) + '%';
+            }
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target + '%';
+            if (prefix) {
+                element.innerHTML = `<span class="stats__prefix">${prefix.trim()}</span> ${target}%`;
+            } else {
+                element.textContent = target + '%';
+            }
         }
     }
     
@@ -68,10 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.stats__number').forEach(el => {
         // Only animate percentage values
         if (el.textContent.includes('%')) {
-            const value = parseInt(el.textContent);
-            el.setAttribute('data-target', value);
-            el.textContent = '0%';
-            counterObserver.observe(el);
+            // Extract number from text (handles both "100%" and "viac ako 80%")
+            const match = el.textContent.match(/(\d+)%/);
+            if (match) {
+                const value = parseInt(match[1]);
+                const prefix = el.querySelector('.stats__prefix');
+                const prefixText = prefix ? prefix.textContent + ' ' : '';
+                
+                el.setAttribute('data-target', value);
+                el.setAttribute('data-prefix', prefixText);
+                
+                // Set initial state
+                if (prefix) {
+                    el.innerHTML = `<span class="stats__prefix">${prefix.textContent}</span> 0%`;
+                } else {
+                    el.textContent = '0%';
+                }
+                
+                counterObserver.observe(el);
+            }
         }
     });
 
