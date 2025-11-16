@@ -172,6 +172,9 @@ body {
     font-family: 'Botanika Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
 }
 
 .button--primary {
@@ -718,6 +721,7 @@ html {
 .contact__submit {
     align-self: flex-start;
     padding: 0 36px;
+    box-shadow: none;
 }
 
 .contact__feedback {
