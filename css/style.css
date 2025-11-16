@@ -14,7 +14,7 @@
 
 :root {
     --primary: #0039A6;
-    --primary-light: #E1EBFE;
+    --primary-light: #ECF1FF;
     --text: #000000;
     --white: #FFFFFF;
     --gray: #D9D9D9;
@@ -22,7 +22,7 @@
     --container: 1174px;
     --radius: 9px;
     --radius-full: 33px;
-    --header-height: 75px; /* Добавляем высоту хедера как переменную */
+    --header-height: 75px;
 }
 
 * {
@@ -33,7 +33,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-height); /* Добавляем отступ для правильного позиционирования при прокрутке */
+    scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -121,14 +121,14 @@ body {
 
 /* Hero */
 .hero {
-    padding-top: 180px; /* увеличили верхний отступ */
+    padding-top: 180px;
     padding-bottom: 50px;
     text-align: center;
 }
 
 .hero__title {
     max-width: 681px;
-    margin: 0 auto 36px; /* отступ до кнопки */
+    margin: 0 auto 36px;
     font-weight: 400;
     display: flex;
     flex-direction: column;
@@ -139,7 +139,7 @@ body {
 .hero__title-main {
     font-size: 72px;
     line-height: 87px;
-    white-space: nowrap; /* текст в одну строку */
+    white-space: nowrap;
 }
 
 .hero__title-accent {
@@ -188,7 +188,7 @@ body {
 
 /* Video */
 .video {
-    padding-top: 148px; /* отступ от кнопки до видео */
+    padding-top: 148px; 
     padding-bottom: 50px;
 }
 
@@ -233,7 +233,7 @@ body {
     font-size: 48px;
     line-height: 58px;
     font-weight: 700;
-    margin-bottom: 24px;  /* Changed to exactly 24px as requested */
+    margin-bottom: 24px;
 }
 
 .stats__grid {
@@ -348,7 +348,7 @@ body {
     font-size: 24px;
     line-height: 29px;
     max-width: 1167px;
-    margin: 24px auto 50px; /* 24px gap between the heading and this paragraph */
+    margin: 24px auto 50px;
 }
 
 .team__grid {
@@ -606,19 +606,16 @@ html {
 }
 
 /* Contact section styles */
-.contact {
-    padding: 80px 0;
-    background: var(--primary-light);
-}
+
 
 .contact__wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    background: var(--white);
+    background: var(--primary-light);
     border-radius: var(--radius);
     padding: 48px;
-    box-shadow: 0 30px 90px rgba(0, 57, 166, 0.12);
+    box-shadow: none;
 }
 
 .contact__info {
@@ -631,6 +628,7 @@ html {
     font-size: 42px;
     line-height: 1.2;
     color: var(--primary);
+    text-transform: uppercase;
 }
 
 .contact__text {
@@ -697,7 +695,7 @@ html {
     font-size: 16px;
     font-family: 'Botanika-Demi', sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(255, 255, 255, 0.95);
+    background: #FFFFFF;
 }
 
 .contact__textarea {
