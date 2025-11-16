@@ -69,8 +69,8 @@
                         <h3 class="stats__number"><span class="stats__prefix">></span>80%</h3>
                         <p class="stats__text">aktuálna presnosť</p>
                     </div>
-            </div>
                 </div>
+            </div>
         </section>
 
         <section id="features" class="features">
@@ -81,6 +81,9 @@
                             <h3 class="features__title">Prihlasovanie cez AIS údaje</h3>
                             <p class="features__text">Prihláste sa jednoducho pomocou vašich AIS prihlasovacích údajov. Bezpečné a rýchle pripojenie k vášmu študijnému profilu pre personalizované odpovede a informácie.</p>
                         </div>
+                            <input type="hidden" name="access_key" value="42cdf625-082e-45a2-be04-e6384bc75663">
+                            <input type="hidden" name="subject" value="Správa z FEI Chat Bot webu">
+                            <input type="hidden" name="from_name" value="FEI Chat Bot">
                         <div class="features__image">
                             <img src="assets/media/r_1.gif" alt="Vstup cez AIS údaje" class="features__img">
                         </div>
@@ -159,6 +162,39 @@ organizujeme meetupy nadšencov AI </p>
             <div class="cta__wrap">
                 <h2 class="cta__title">Veríme, že náš chatbot uľahčí vaše štúdium na FEI.</h2>
                 <a href="https://dev.agentkovac.sk/" class="button button--primary cta__button">Vyskúšať</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact__wrap">
+                <div class="contact__info">
+                    <h2 class="contact__title">Kontaktujte nás</h2>
+                    <p class="contact__text">Ak máte otázky alebo návrhy k FEI Chat Botovi, pokojne nám napíšte. Ozveme sa vám s odpoveďou čo najskôr.</p>
+                </div>
+                <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="42cdf625-082e-45a2-be04-e6384bc75663">
+                    <input type="hidden" name="subject" value="Správa z FEI Chat Bot webu">
+                    <input type="hidden" name="from_name" value="FEI Chat Bot">
+                    <div class="contact__fields">
+                        <div class="contact__field">
+                            <label for="contact-name" class="contact__label">Meno a priezvisko</label>
+                            <input type="text" id="contact-name" name="name" class="contact__input" placeholder="Zadajte vaše meno" required>
+                        </div>
+                        <div class="contact__field">
+                            <label for="contact-email" class="contact__label">E-mail</label>
+                            <input type="email" id="contact-email" name="email" class="contact__input" placeholder="vas@email.sk" required>
+                        </div>
+                    </div>
+                    <div class="contact__field">
+                        <label for="contact-message" class="contact__label">Správa</label>
+                        <textarea id="contact-message" name="message" class="contact__textarea" rows="5" placeholder="Napíšte, s čím potrebujete pomôcť" required></textarea>
+                    </div>
+                    <p class="contact__notice">Odoslaním formulára súhlasíte so spracovaním údajov na účely odpovede na vašu požiadavku.</p>
+                    <button type="submit" class="button button--primary contact__submit">Odoslať správu</button>
+                    <p class="contact__feedback" aria-live="polite" role="status"></p>
+                </form>
             </div>
         </div>
     </section>

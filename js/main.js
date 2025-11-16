@@ -30,4 +30,54 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.boxShadow = 'none';
         }
     });
+
+    const contactForm = document.querySelector('.contact__form');
+    if (contactForm) {
+        const feedbackEl = contactForm.querySelector('.contact__feedback');
+        const submitBtn = contactForm.querySelector('.contact__submit');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (feedbackEl) {
+                feedbackEl.style.color = 'rgba(0, 0, 0, 0.75)';
+                feedbackEl.textContent = 'Odosielame správu...';
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+            }
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.message || `Unexpected response: ${response.status}`);
+                }
+
+                contactForm.reset();
+
+                if (feedbackEl) {
+                    feedbackEl.style.color = 'var(--primary)';
+                    feedbackEl.textContent = 'Ďakujeme! Správu sme prijali.';
+                }
+            } catch (error) {
+                if (feedbackEl) {
+                    feedbackEl.style.color = '#d11a2a';
+                    feedbackEl.textContent = 'Momentálne sa nám nepodarilo odoslať formulár. Napíšte prosím priamo na anastasamoy@gmail.com.';
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+    }
 });
